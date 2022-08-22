@@ -1,0 +1,10 @@
+.container-nav li{
+    list-style: none;
+    padding: 8px 35px 10px 35px;
+    margin: 10px 10px 10px 10px;
+    color: white
+    
+}
+.container-nav{
+    background-color:#3b5998
+}

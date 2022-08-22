@@ -1,0 +1,10 @@
+.container-loged{
+    position: relative;
+    display: inline-block;
+    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+        -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+    margin: 1em 1em;
+    width: 90vw;
+    height: 90vh;
+    padding: 1em
+}

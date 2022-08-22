@@ -1,0 +1,8 @@
+
+
+.box-grid{
+
+    display:grid;
+    grid-template-columns: 70vw 1fr;
+    flex-wrap: wrap; 
+}

@@ -1,0 +1,15 @@
+:root{
+    --color-primary: black;
+    --background-color-primary: #e3edf7;
+}
+
+.btn-primary{
+    background-color: var(--background-color-primary);
+    color: var(--color-primary);
+    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+      -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+    border-color: transparent;
+    cursor: pointer;
+    padding: 0px 1rem;
+    margin: 0px 10px
+}

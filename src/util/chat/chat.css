@@ -1,0 +1,29 @@
+.scream{
+    background-color: white;
+  border: black solid;
+    height: 60vh;
+    overflow-y: auto;
+    
+}
+
+
+.form-enviar input{
+    width: 90%;
+    
+}
+
+.scream.message{
+    position: absolute;
+    display: inline-block;
+    margin: 2vh 2vw;
+}
+
+.scream-message{
+    
+    
+    padding: 1.3vw;
+    border-radius: 10%;
+    margin: 0vh;
+    margin-left: 50vw;
+    
+}
