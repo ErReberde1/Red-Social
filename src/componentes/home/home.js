@@ -49,8 +49,8 @@ export default function Home() {
     {loginState ? 
     
       <TagMainGrid>
-        <Main className="tagMainGri-grid-70"><Chat/></Main>
-        <Main className="tagMainGri-grid-30"></Main>
+        <Main className="tagMainGri-grid-70">Hola</Main>
+        <Main className="tagMainGri-grid-30">Hola</Main>
       </TagMainGrid> :
       <TagMainGrid >
         <Main>

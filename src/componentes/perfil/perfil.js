@@ -44,12 +44,18 @@ export default function Pefil() {
 
       <TagMainGrid className="grid-perfil" display="grid" grid="1fr 1fr">
         <div>
-          <h2> Mis historias</h2>
+          <h2 className="grid-perfil-page"> Mi perfil</h2>
             {dataPubli.map(e=>
             
-            <div className="card-publi">
-              <h2>{e.titulo}</h2>
-              <p>{e.texto}</p>
+            <div className="grid-perfil-titulo-card-publi">
+              <h2 className="grid-perfil-titulo">{e.titulo}</h2>
+              <p className="grid-perfil-p">{e.texto}</p>
+              <div className="grid-perfil-box">
+                <b className="grid-perfil-box-boton">Me gusta</b>
+                <b className="grid-perfil-box-boton">Comentar</b> 
+                <b className="grid-perfil-box-boton">Compartir</b>
+              </div>
+              <input className="grid-perfil-input" placeholder="Comenta"/>
             </div>
             
           )

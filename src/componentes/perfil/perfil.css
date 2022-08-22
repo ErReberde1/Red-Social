@@ -2,9 +2,47 @@
     grid-template-columns: 70rem 1fr 1fr; 
 }
 
-.card-publi{
+.grid-perfil-page{
+    margin: 4vh 2vw
+}
+.grid-perfil-titulo{
+    margin: 3vh 4vw;
+    
+}
+
+.grid-perfil-titulo-card-publi{
     background: #e3edf7;
     box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
         -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
-    border-radius: 10px; 
+    border: rgb(226, 226, 226) groove;
+    margin-bottom: 4vh;
+    border-radius: 20px;
+    margin-left: 1.5vw
+}
+.grid-perfil-box{
+    border-top: rgb(226, 226, 226) groove;
+    margin: 2vh 3vw;
+    border-bottom: rgb(226, 226, 226) groove;
+    padding: 3vh
+}
+.grid-perfil-box-boton{
+    padding-left:  2vw;
+    padding-right:  2vw;
+    margin: 0vh 5vw;
+    
+    
+}
+
+.grid-perfil-p {
+    margin: 1vh 3vw;
+    padding: 10vh 2vw;
+    
+}
+
+.grid-perfil-input{
+    width: 60vw;
+    margin-top: 3vh;
+    margin-bottom: 5vh;
+    padding: 2vh;
+    border-radius: 30px;
 }

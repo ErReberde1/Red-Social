@@ -11,7 +11,8 @@ import Home from './componentes/home/home.js';
 import Login from './componentes/login/login.js';
 import Crear from './componentes/crear/crear';
 import Perfil from './componentes/perfil/perfil';
-
+import Salachat
+ from './componentes/salachat/salachat';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
@@ -23,6 +24,7 @@ root.render(
       <Route path="/" element={<Home/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/crear" element={<Crear/>}/> 
+      <Route path="/chat" element={<Salachat/>}/> 
     </Routes>
   </BrowserRouter>
   </Provider>

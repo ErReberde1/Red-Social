@@ -1,10 +1,44 @@
 .container-nav li{
     list-style: none;
-    padding: 8px 35px 10px 35px;
-    margin: 10px 10px 10px 10px;
+    padding-left:1vw;
+    margin: 1vw 1vh;
     color: white
     
 }
 .container-nav{
-    background-color:#3b5998
+    display:flex;
+    margin-left: 45vw;
+    position: relative;
+
+    
+}
+.enlace{
+    text-decoration: none;
+    color: white;
+    
+  }
+  
+.contain{
+    background: #3b5998;
+    
+    
+}
+
+.container-nav_logo{
+    width: 0.6em;
+    position:relative;
+    float: left;
+    margin: 0.5vh 1vw;
+    border: white groove;
+    background-color: #3b5998;
+    padding: 1vh 1vw;
+    border-radius: 35%
+}
+
+svg {
+    pointer-events: none;
+}
+
+path{
+    pointer-events: auto;
 }

@@ -103,7 +103,7 @@ export default function Chat() {
              {messages.map(message=> 
                 
                     <p className= "scream-message"
-                    style={{"background-color": message.from == "Me" ? "#828282" : "#1877F2",
+                    style={{"background-color": message.from == "Me" ? "#1877F2" : "#828282",
                             "float": message.from =="Me" ? "right" : "left",
                             "visibility": message.body ? "visible" : "hidden"}}>{message.body}</p> 
                
