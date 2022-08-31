@@ -8,7 +8,7 @@ import './chat.css'
 
 
 
-const socket = io('http://localhost:3001') 
+const socket = io('https://backend-reactjsocial.herokuapp.com') 
 
 export default function Chat() {
 
@@ -25,16 +25,19 @@ export default function Chat() {
     
     
 
-    socket.on("newconnection", (user, users)=>{
-        console.log(user, users)
+    socket.on("newconnection", (id)=>{
+        
     })
     
    
     const [message, setMessage] = useState("")
+    const[users, setUsers] = useState([])
     const [messages, setMessages] = useState([{
        body: "",
         from: ""
     }])
+
+    
 
     
 

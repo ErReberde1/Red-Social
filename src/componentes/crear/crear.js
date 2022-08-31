@@ -21,7 +21,7 @@ export default function Crear() {
       const enviarDatos = async (e, id)=>{
         console.log("enviado datos pues")
         e.preventDefault()
-        await axios.post('http://localhost:3001/api/fotos', {
+        await axios.post('https://backend-reactjsocial.herokuapp.com/api/fotos', {
           titulo: publi.titulo, 
           texto: publi.texto,
           imagen:publi.foto,

@@ -25,7 +25,7 @@ export default function Pefil() {
 
   const getHistorias = async()=>{
 
-    const {data} = await axios.get("http://localhost:3001/api/fotos/"+ author)
+    const {data} = await axios.get("https://backend-reactjsocial.herokuapp.com/api/fotos/"+ author)
     console.log(data)
     await dispatch(actionSaveDataPubli(data))
     console.log(dataPubli)
