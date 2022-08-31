@@ -27,6 +27,7 @@ export default function Navegation() {
     dispatch(resetUserData);
     dispatch(resetDataPubli)
     window.localStorage.removeItem('loggedUserApp')
+    window.location.replace("https://reactjsocial.herokuapp.com/perfil")
   };
 
   
@@ -69,7 +70,7 @@ export default function Navegation() {
                 textoBoton="Salir"
               > 
               
-              </BotonPrimario>{" "}
+              </BotonPrimario>
               {userData.map((user) => (
                 <Link className="enlace" to="/login">
                   {user.username}

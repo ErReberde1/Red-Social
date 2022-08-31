@@ -6,8 +6,12 @@ import axios from 'axios'
 import {useSelector, useDispatch} from 'react-redux'
 import {actionLogged, actionSaveDataPubli} from '../../util/redux/actions/actions'
 
+import BotonSecundario from '../../util/botones/botonSecundario'
+
 
 export default function Pefil() {
+
+  const [ventana, setVentana] = useState("publicaciones")
 
   const dispatch = useDispatch()
   const data = useSelector(state=> 
@@ -20,7 +24,7 @@ export default function Pefil() {
     state.dataPubli
     )
   const author= data.map(e=>e._id)
-
+    console.log(data)
  
 
   const getHistorias = async()=>{
@@ -30,7 +34,11 @@ export default function Pefil() {
     await dispatch(actionSaveDataPubli(data))
     console.log(dataPubli)
     
-  } 
+  }
+
+  const changeVentana = (parametro)=>{
+    setVentana(parametro)
+  }
   
   useEffect(()=>{
     /* Object.keys(dataPubli).length === 0 ? getHistorias() : console.log("Ya las tenemos cargadas") */
@@ -42,9 +50,13 @@ export default function Pefil() {
   
   return (
 
-      <TagMainGrid className="grid-perfil" display="grid" grid="1fr 1fr">
+      <div>
+        {ventana == "publicaciones" ? 
         <div>
-          <h2 className="grid-perfil-page"> Mi perfil</h2>
+          <h2 className="grid-perfil-page">{data[0].nombre} {data[0].apellidos} </h2>
+            <BotonSecundario onclick={()=>changeVentana("publicaciones")}textoBoton="Publicaciones"/> 
+            <BotonSecundario onclick={()=>changeVentana("informacion")}textoBoton="Información "/> 
+            <BotonSecundario onclick={()=>changeVentana("amigos")}textoBoton="Amigos"/>
             {dataPubli.map(e=>
             
             <div className="grid-perfil-titulo-card-publi">
@@ -56,15 +68,34 @@ export default function Pefil() {
                 <b className="grid-perfil-box-boton">Compartir</b>
               </div>
               <input className="grid-perfil-input" placeholder="Comenta"/>
-            </div>
+            </div> 
             
-          )
+          )} 
+        </div>  : ventana == "informacion" ? 
         
-        } 
+        <div>
+          <h2 className="grid-perfil-page">{data[0].nombre} {data[0].apellidos} </h2>
+            <BotonSecundario onclick={()=>changeVentana("publicaciones")}textoBoton="Publicaciones"/> 
+            <BotonSecundario onclick={()=>changeVentana("informacion")}textoBoton="Información "/> 
+            <BotonSecundario onclick={()=>changeVentana("amigos")}textoBoton="Amigos"/>
+            {data.map(e=><div>
+              <p>Nombre: {e.nombre}</p>
+              <p>Apellido: {e.apellidos}</p>
+              <p>Residencia: {e.direccion}</p>
+              <p>De donde: {e.direccion}</p>
+              <p>Género: {e.genero}</p>
+              <p>Cumpleaños: {e.cumpleaños}</p>
+              <p>Estado civil: {e.estado_civil}</p>
+            </div>)}
+        </div> : 
+           <div>
+          <h2 className="grid-perfil-page">{data[0].nombre} {data[0].apellidos} </h2>
+            <BotonSecundario onclick={()=>changeVentana("publicaciones")}textoBoton="Publicaciones"/> 
+            <BotonSecundario onclick={()=>changeVentana("informacion")}textoBoton="Información "/> 
+            <BotonSecundario onclick={()=>changeVentana("amigos")}textoBoton="Amigos"/>
+        </div>}
         </div>
-        <Main>2</Main>
       
-      </TagMainGrid>
-    
+     
   )
 }

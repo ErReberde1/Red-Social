@@ -17,7 +17,8 @@
     border: rgb(226, 226, 226) groove;
     margin-bottom: 4vh;
     border-radius: 20px;
-    margin-left: 1.5vw
+    margin-left: 1.5vw;
+    margin-right: 1.5vw
 }
 .grid-perfil-box{
     border-top: rgb(226, 226, 226) groove;
@@ -40,7 +41,7 @@
 }
 
 .grid-perfil-input{
-    width: 60vw;
+    width: 80vw;
     margin-top: 3vh;
     margin-bottom: 5vh;
     padding: 2vh;

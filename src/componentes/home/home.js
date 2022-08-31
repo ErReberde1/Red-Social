@@ -15,9 +15,11 @@ import './home.css'
 import {actionRegister,actionUnRegister,actionValidadorTrue, actionValidadorFalse  } from '../../util/redux/actions/actions'
 import Crear from '../crear/crear'
 import Chat from '../../util/chat/chat'
-
+import '../perfil/perfil.css'
 
 export default function Home() {
+
+  const [histories, setHistories] = useState([])
 
   const validadorState = useSelector(state=>
     state.validador
@@ -29,18 +31,20 @@ export default function Home() {
     state.login
   )
 
-  
-
-  const windowSize =()=>{
-    const pantalla = window.screen.width
-    console.log(pantalla)
+  const getHistorias= async()=>{
+    const res = await axios.get("https://backend-reactjsocial.herokuapp.com/api/fotos")
+    
+    setHistories(res.data)
+    console.log(histories)
   }
 
   
 
+  
+
   useEffect(()=>{
-    windowSize()
-})
+    getHistorias()
+},[])
   
   
   return (
@@ -48,10 +52,22 @@ export default function Home() {
     
     {loginState ? 
     
-      <TagMainGrid>
-        <Main className="tagMainGri-grid-70">Hola</Main>
-        <Main className="tagMainGri-grid-30">Hola</Main>
-      </TagMainGrid> :
+        <Main className="tagMainGri-grid-70">{histories.map(historie =>
+        <div className="grid-perfil-titulo-card-publi">
+          <h5>{historie.author}</h5>
+          <h2 className="grid-perfil-titulo">{historie.titulo}</h2>
+          <p className="grid-perfil-p">{historie.texto}</p>
+          <div className="grid-perfil-box">
+            <b className="grid-perfil-box-boton">Me gusta</b>
+            <b className="grid-perfil-box-boton">Comentar</b> 
+            <b className="grid-perfil-box-boton">Compartir</b>
+          </div>
+          <input className="grid-perfil-input" placeholder="Comenta"/>
+        </div>
+          
+          )}</Main>
+        
+       :
       <TagMainGrid >
         <Main>
          <h1> Porque compartir es vivir</h1>
