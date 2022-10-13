@@ -1,15 +1,17 @@
-import React,{ useState} from 'react'
+import React,{ useState, Suspense, lazy} from 'react'
 import axios from 'axios'
 import BotonPrimario from '../botones/botonPrimario'
 import {useSelector, useDispatch} from 'react-redux'
 import {store} from '../redux/store/store.js'
 import {loginReducer} from '../redux/reducers/loginReducer'
 import {actionLogged, actionUnLogged, saveUserData,actionRegister, actionUnRegister} from '../redux/actions/actions'
-import ModaLoged from './modaloged'
-import ModalFormRegister from './modalformregister'
 import './modalformlogin.css'
 import io from 'socket.io-client'
+import './modalformlogin.scss'
+import Loader from '../loader/loader.js'
 
+const ModaLoged = lazy(()=> import('./modaloged'))
+const ModalFormRegister = lazy(()=> import('./modalformregister'))
 
 export default function ModalForm({title, textoBoton, inputs}) {
 
@@ -103,27 +105,28 @@ export default function ModalForm({title, textoBoton, inputs}) {
     //estamos utilizando una ternaria para condicionar el renderizado. Si loginState es TRUE, se renderizará el componente <ModaLoged>
     //ModaLoged es un componente que tiene toda la información del usuario logeado. (Configuración de la cuenta)
     //si es FALSE, se rendizará un div con 2 inputs (usuario y contraseña) y el botón para logearte.
-    <div >
+    <Suspense  fallback={<Loader/>}>
+    <div className="login">
         {loginState ? <ModaLoged/> : 
         loginRegister ? <ModalFormRegister/> : 
-        <div className="container-login container">
+        <div className="login__container">
           
-          <form id="form">
-            <h1>{title}</h1>
+          <form id="form" className="login__container__form">
+            <h1 className="login__container__form__titulo">{title}</h1>
           
             {valueInputs.map(e => React.createElement("input", {type: e.type,
                                                               placeholder: e.name,
-                                                              className: "input",
+                                                              className: "login__container__form__input",
                                                               name: e.name,
                                                               onChange: handleInputChange,
                                                               key: e.name}))}
             <BotonPrimario textoBoton={textoBoton} onclick={enviarDatos} />
-          
-          </form>
-          <BotonPrimario textoBoton="Registrarme" onclick={registro} /><BotonPrimario/>
+            <BotonPrimario textoBoton="Registrarme" onclick={registro} />
           <p> ¿Has olvidado tu contraseña?</p>
+          </form>
         </div>}
     </div>
+    </Suspense>
     
   )
   }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ModalForm from '../../util/Modales/modalformlogin'
 import Box from '../../util/cajas/box'
-import './login.css'
+
 
 
 export default function Login() {
@@ -17,14 +17,14 @@ export default function Login() {
     
   return (
     
-    <div >
+    <>
         {<ModalForm 
           title="Login" 
           textoBoton="Enviar" 
           inputs={inputs}
           />  
             }
-    </div>
+    </>
    
   )
 }

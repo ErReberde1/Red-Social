@@ -2,12 +2,12 @@ html{
   
   
   font-size: 20px;
-  font-family:'Times New Roman', Times, serif;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
   
 }
 body{
   overflow-x: hidden;
-  
 }
 .App {
  
@@ -24,12 +24,4 @@ body{
   }
   to {
     transform: rotate(360deg);
-  }
-}
-
-
-
-
-
-
-
+  }}

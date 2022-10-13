@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import Main from '../../util/cajas/tagmain'
 import TagMainGrid from '../../util/cajas/tagmaingrid.js'
-import './perfil.css'
+import './style.scss'
 import axios from 'axios'
 import {useSelector, useDispatch} from 'react-redux'
 import {actionLogged, actionSaveDataPubli} from '../../util/redux/actions/actions'
@@ -50,28 +50,27 @@ export default function Pefil() {
   
   return (
 
-      <div>
+      <div className="perfil">
         {ventana == "publicaciones" ? 
-        <div>
-          <h2 className="grid-perfil-page">{data[0].nombre} {data[0].apellidos} </h2>
-            <BotonSecundario onclick={()=>changeVentana("publicaciones")}textoBoton="Publicaciones"/> 
-            <BotonSecundario onclick={()=>changeVentana("informacion")}textoBoton="Información "/> 
-            <BotonSecundario onclick={()=>changeVentana("amigos")}textoBoton="Amigos"/>
+        <>
+          <h2 className="perfil__nombre">{data[0].nombre.toUpperCase()} {data[0].apellidos.toUpperCase()} </h2>
+          <BotonSecundario onclick={()=>changeVentana("publicaciones")}textoBoton="Publicaciones"/> 
+          <BotonSecundario onclick={()=>changeVentana("informacion")}textoBoton="Información "/> 
+          <BotonSecundario onclick={()=>changeVentana("amigos")}textoBoton="Amigos"/>
             {dataPubli.map(e=>
             
-            <div className="grid-perfil-titulo-card-publi">
-              <h2 className="grid-perfil-titulo">{e.titulo}</h2>
-              <p className="grid-perfil-p">{e.texto}</p>
-              <div className="grid-perfil-box">
-                <b className="grid-perfil-box-boton">Me gusta</b>
-                <b className="grid-perfil-box-boton">Comentar</b> 
-                <b className="grid-perfil-box-boton">Compartir</b>
-              </div>
+          <div className="perfil__card">
+            <h2 className="perfil__card__titulo">{e.titulo}</h2>
+            <p className="perfil__card__texto">{e.texto}</p>
+            <div className="perfil__card__botones">
+              <b className="perfil__card__botones__megusta">Me gusta</b>
+              <b className="perfil__card__botones__comparte">Compartir</b>
+            </div>
               <input className="grid-perfil-input" placeholder="Comenta"/>
-            </div> 
+          </div> 
             
           )} 
-        </div>  : ventana == "informacion" ? 
+        </>  : ventana == "informacion" ? 
         
         <div>
           <h2 className="grid-perfil-page">{data[0].nombre} {data[0].apellidos} </h2>

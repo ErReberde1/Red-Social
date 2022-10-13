@@ -8,38 +8,32 @@ import './chat.css'
 
 
 
-const socket = io('https://backend-reactjsocial.herokuapp.com') 
+
+const socket = io(  'https://backend-reactjsocial.herokuapp.com' 
+     /* "http://localhost:3001/" */ ) 
 
 export default function Chat() {
+    const id = dataUser[0]._id
 
+    socket.emit('chatuser', id)
     
-
+    socket.on("arrayUsers", (users)=>{
+        console.log(users)
+    })
     const dispatch = useDispatch()
 
     const dataUser = useSelector(state => 
         state.data
         )
     
-    const id = dataUser[0]._id
-
-    
     
 
-    socket.on("newconnection", (id)=>{
-        
-    })
-    
-   
     const [message, setMessage] = useState("")
     const[users, setUsers] = useState([])
     const [messages, setMessages] = useState([{
        body: "",
         from: ""
     }])
-
-    
-
-    
 
     const chatear =(e)=>{
         e.preventDefault()
@@ -56,7 +50,8 @@ export default function Chat() {
         event.preventDefault()
         await setMessage(event.target.value)
     }
-   
+
+    
      useEffect(
 
        ()=>{ 
@@ -76,7 +71,8 @@ export default function Chat() {
             setMessages([message, ...messages])
             console.log(messages)
         });
-        
+
+     
         
         }, [messages])
 

@@ -1,0 +1,53 @@
+.contain{
+    background: #1877f2;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    &__logo{
+        width: 0.6em;
+        position:relative;
+        float: left;
+        margin: 0.5vh 1vw;
+        border: white groove;
+        background-color: #1877f2;
+        padding: 1vh 1vw;
+        border-radius: 35%
+    }
+    &__nav{
+        list-style: none;
+        display: flex;
+        margin-left: 40%;
+       
+        @media screen and (min-width: 1200px){
+            margin-left: 60%;
+        }
+        &__search{
+              
+            &__input{
+               border: none;
+            }
+        }
+        &__enlace{
+            color: white;
+            margin-left:4%;
+            margin-right: 4%;
+            @media screen and (min-width: 1200px){
+                margin-left: 5%;
+                margin-right: 4%;
+            }
+            &__icon{
+                color: white;
+            }
+        }&__nologed{
+            color: white;
+            margin-left:0%;
+            float: left;
+            @media screen and (min-width: 1200px){
+                margin-left:0%;
+                
+            &__icon{
+                color: white;
+            }
+        }
+    }
+}}

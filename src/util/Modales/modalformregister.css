@@ -1,0 +1,24 @@
+.container-register{
+    position:relative;
+    text-align:center
+}
+
+.container-register_form_h1{
+    margin-top: 10vh;
+   
+}
+
+.container-register_form{
+    padding: 5vh 5vw;
+    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+      -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+    border-color: transparent;
+    margin: 7vh 30vw;
+    display: inline-block;
+    background-color:#e3edf7
+}   
+
+.container-register_form_input{
+    margin-bottom: 3vh;
+    display: block;
+}

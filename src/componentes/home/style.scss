@@ -1,0 +1,82 @@
+.home{
+    width: 100%;
+    margin-top: 5vh;
+    &__container{
+        margin: 15vh 10%;
+        &__post{
+            margin-bottom: 5vh;
+            font-size:2vw;
+            padding: 5%;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            &__foto{
+                border: rgb(208, 208, 208) groove;
+                padding: 10px;
+                border-radius: 50px;
+                display: inline
+            }&__author{
+                margin-left: 5%;
+                display: inline
+            }
+            &__titulo{
+                
+            }&__texto{
+                
+            }&__menu{
+                width: 100%;
+                margin-bottom: 5%;
+                padding-top:2%;
+                padding-bottom:2%;
+                border-top:  rgb(189, 189, 189) solid;
+                border-bottom: rgb(189, 189, 189) solid;
+                text-align: center;
+                &__megusta{
+                    margin-right: 50%;
+                    
+                }&__comparte{
+                    
+                }
+            }
+            &__comenta{
+                width: 100%;
+                border-radius: 10px;
+            }
+        }
+    }
+    &__loged{
+        display: grid;
+        grid-template-columns: repeat(1fr);
+        margin: 0vh 10vw;
+        @media screen and (max-width:900px){
+            grid-template-columns: 1fr;
+            margin: 0vh 10vw;
+        } 
+        &__left{
+            height: 100%;
+            width:100%;
+            text-align: center;
+            margin-top: 10%;
+            &__h1{
+                margin: 5vh 20vw;
+                font-size: 7vw;
+                color: #1877f2;
+            }
+            &__h4{
+                display: inline-block;
+            }
+        }&__right{
+            margin: 10vh 20vw;
+            text-align: center;
+            box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;            width: 50%;
+            @media screen and (max-width: 400px) {
+                margin: 10vh 20vw;
+            }
+            &__h3{
+
+                &__link{
+                    text-decoration:none
+                }
+            }
+        }
+    }
+}
