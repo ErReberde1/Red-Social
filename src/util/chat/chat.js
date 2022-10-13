@@ -12,7 +12,14 @@ import './chat.css'
 const socket = io(  'https://backend-reactjsocial.herokuapp.com' 
      /* "http://localhost:3001/" */ ) 
 
+
 export default function Chat() {
+
+    const dispatch = useDispatch()
+    const dataUser = useSelector(state => 
+        state.data
+        )
+        
     const id = dataUser[0]._id
 
     socket.emit('chatuser', id)
@@ -20,11 +27,7 @@ export default function Chat() {
     socket.on("arrayUsers", (users)=>{
         console.log(users)
     })
-    const dispatch = useDispatch()
-
-    const dataUser = useSelector(state => 
-        state.data
-        )
+    
     
     
 
