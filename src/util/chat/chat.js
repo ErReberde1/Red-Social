@@ -10,7 +10,7 @@ import './style.scss'
 
 
 const socket = io(/* 'https://backend-reactjsocial.herokuapp.com' */ 
-     "http://localhost:3001/"  ) 
+     "https://backend-express-production-dff3.up.railway.app/"  ) 
 
 
 export default function Chat() {

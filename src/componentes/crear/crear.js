@@ -17,7 +17,7 @@ export default function Crear() {
   const enviarDatos = async (e, id) => {
     console.log("enviado datos pues");
     e.preventDefault();
-    await axios.post("https://backend-reactjsocial.herokuapp.com/api/fotos", {
+    await axios.post("https://backend-express-production-dff3.up.railway.app/api/fotos", {
       texto: publi.texto,
       imagen: publi.foto,
       author: publi.author,

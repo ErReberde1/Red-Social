@@ -45,6 +45,7 @@ export default function Home() {
     <main className="home">
       {loginState ? (
         <div className="home__container">
+          
           {histories.map((historie) => (
             <article className="home__container__post">
               <img className="home__container__post__foto" width="50" height="50" src="https://source.unsplash.com/random"/>

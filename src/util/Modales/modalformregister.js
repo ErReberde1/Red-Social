@@ -8,7 +8,7 @@ export default function ModalFormRegister() {
 
   const enviarDatos = async(e)=>{
     e.preventDefault()
-    const res = await axios.post('https://backend-reactjsocial.herokuapp.com/api/user', {
+    const res = await axios.post('https://backend-express-production-dff3.up.railway.app/api/user', {
       nombre: datos.nombre, 
       apellidos: datos.apellidos,
       cumpleaños:datos.cumpleaños,

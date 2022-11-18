@@ -21,7 +21,6 @@ root.render(
   <BrowserRouter>
     <App />
     <Routes>
-      
       <Route path="/conocenos" element={<Conocenos/>} />
       <Route path="/perfil" element={<Perfil/>}/>
       <Route path="/" element={<Home/>}/>

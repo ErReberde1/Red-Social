@@ -50,7 +50,7 @@ export default function ModalForm({title, textoBoton, inputs}) {
   // función para enviar datos al servidor y comprobar que el usuario existe 
   const enviarDatos = async(e)=>{
     e.preventDefault() // quitamos el evento submit del boton para que no refresque la página
-    const res1 = await axios.post('https://backend-reactjsocial.herokuapp.com/api/signin',{
+    const res1 = await axios.post('https://backend-express-production-dff3.up.railway.app/api/signin',{
       email: datos.email,
       contraseña: datos.password
     }) // metemos en variable "res" la respuesta del servidor
