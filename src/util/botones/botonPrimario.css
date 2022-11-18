@@ -11,8 +11,9 @@
     border-color: transparent;
     cursor: pointer;
     padding: 0.6vh 3vw;
-    margin: 0px 10px;
+    margin: 10px 10px;
     border-radius: 5%
+
 }
 .btn-secondary:hover{
   background-color: #1653d7

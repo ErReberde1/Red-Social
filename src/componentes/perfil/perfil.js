@@ -59,7 +59,7 @@ export default function Pefil() {
           <BotonSecundario onclick={()=>changeVentana("amigos")}textoBoton="Amigos"/>
             {dataPubli.map(e=>
             
-          <div className="perfil__card">
+          <div className="perfil__card" key ={e.id}>
             <h2 className="perfil__card__titulo">{e.titulo}</h2>
             <p className="perfil__card__texto">{e.texto}</p>
             <div className="perfil__card__botones">

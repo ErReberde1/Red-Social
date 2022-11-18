@@ -4,13 +4,13 @@ import io from 'socket.io-client'
 import {useSelector, useDispatch } from 'react-redux'
 import {saveUserData} from '../../util/redux/actions/actions'
 import axios from 'axios'
-import './chat.css'
+import './style.scss'
 
 
 
 
-const socket = io(  'https://backend-reactjsocial.herokuapp.com' 
-     /* "http://localhost:3001/" */ ) 
+const socket = io(/* 'https://backend-reactjsocial.herokuapp.com' */ 
+     "http://localhost:3001/"  ) 
 
 
 export default function Chat() {
@@ -19,109 +19,120 @@ export default function Chat() {
     const dataUser = useSelector(state => 
         state.data
         )
-        
+
+
     const id = dataUser[0]._id
-
-    socket.emit('chatuser', id)
-    
-    socket.on("arrayUsers", (users)=>{
-        console.log(users)
-    })
-    
-    
-    
-
+    const [state, setState] = useState()
+    const [usuarios, setUsuarios] = useState([])
     const [message, setMessage] = useState("")
-    const[users, setUsers] = useState([])
+    const[usersConnected, setUsersConnected] = useState([])
     const [messages, setMessages] = useState([{
        body: "",
         from: ""
     }])
 
     const chatear =(e)=>{
+        
         e.preventDefault()
         socket.emit("message", message);
         const newMessage = {
             body: message,
             from: "Me"
         }
-        setMessages([newMessage,...messages])
+        setMessages([...messages,newMessage])
         setMessage("")
+        console.log(messages)
     }
+    
+    
 
     const onChangeHandler= async(event) =>{
         event.preventDefault()
         await setMessage(event.target.value)
     }
+    
 
+    /* const listaUsers = async(usersConnected)=>{
+        for(let i = 0 ; i< usersConnected.length; i++){
+            const res = await axios.get('http://localhost:4000/api/users/'+usersConnected[i].chatId)
+            setUsuarios([...usuarios, res])
+            console.log("hola")
+        }
+        
+    }
+ */
+    
+      console.log("reportando usuario")
+      socket.on("connected", (users)=>{
+        console.log(users)
+        setUsersConnected(users)
+        });
+      console.log(usersConnected)
+    
+
+    useEffect(()=>{
+        socket.emit('connected', id)
+
+        setState(true)
+    }, [])
+
+    useEffect(()=>{
+      socket.on("connected", (users)=>{
+        console.log(users)
+        setUsersConnected(users)
+        });
+      console.log(usersConnected)
+    }, [state])
     
      useEffect(
-
-       ()=>{ 
-        /* const receiveMessage =(message)=>{
-            console.log(message)
-            setMessages([...messages, message]
-            ) 
-        } */
-        
+       ()=>{     
         socket.on("message",(message)=> {
-            console.log(message)
-            setMessages([message, ...messages])
-            console.log(messages)
+            setMessages([...messages,message])
         });
         socket.off("message",(message)=> {
-            console.log(message)
-            setMessages([message, ...messages])
-            console.log(messages)
+            setMessages([...messages,message])
         });
-
-     
-        
         }, [messages])
+        
 
-    
-    /* const getAmigos = async()=>{
-
-        const res = await axios.get("http://localhost:3001/api/user/"+id)
-        
-        const user = res.data
-
-        await dispatch(saveUserData(user)) 
-        
-        
-        
-      } 
-    
-     useEffect(()=>{
-        
-        getAmigos()
-    },[])  */
-     
-   
 
   return (
-    <div>
-        <div className="scream">
-             {messages.map(message=> 
-                
-                    <p className= "scream-message"
-                    style={{"background-color": message.from == "Me" ? "#1877F2" : "#828282",
-                            "float": message.from =="Me" ? "right" : "left",
-                            "visibility": message.body ? "visible" : "hidden"}}>{message.body}</p> 
-               
-            )} 
+    <>
+      <div className="chat">
+        <div className="chat__scream">
+          {messages.map((message) => (
+            <p
+              className="chat__scream__message"
+              style={{
+                backgroundColor: message.from == "Me" ? "#1877F2" : "#828282",
+                float: message.from == "Me" ? "right" : "left",
+                visibility: message.body ? "visible" : "hidden",
+              }}
+            >
+              {message.body}
+            </p>
+          ))}
         </div>
-       
-       <div >
-        <form onSubmit={chatear} className="form-enviar">
-            <input required size="20" type="text" onChange={onChangeHandler} value = {message}/>
-            <BotonPrimario textoBoton="Send" type="submit"/>
-        </form>
-        </div>
-        
 
-    </div>
-  )
+        <div className="chat__send">
+          <form onSubmit={chatear} className="chat__send__form">
+            <input
+              className="chat__send__form__boxmessage"
+              required
+              size="20"
+              type="text"
+              onChange={onChangeHandler}
+              value={message}
+            />
+            <BotonPrimario textoBoton="Send" type="submit" />
+          </form>
+        </div>
+      </div>
+      <div className="peopleList">
+              {usuarios.map(e=>e)}
+      </div>
+    </>
+  );
 
 }
 

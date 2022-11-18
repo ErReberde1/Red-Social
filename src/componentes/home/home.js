@@ -15,6 +15,9 @@ import {
 import "../perfil/perfil.css";
 import "./style.scss";
 import BotonPrimario from '../../util/botones/botonPrimario'
+import { Icon } from 'react-icons-kit'
+import {thumbsup} from 'react-icons-kit/oct/thumbsup'
+import {redo2} from 'react-icons-kit/icomoon/redo2'
 
 export default function Home() {
   const [histories, setHistories] = useState([]);
@@ -27,7 +30,7 @@ export default function Home() {
 
   const getHistorias = async () => {
     const res = await axios.get(
-      "https://backend-reactjsocial.herokuapp.com/api/fotos"
+      "https://backend-express-production-dff3.up.railway.app/api/fotos"
     );
 
     setHistories(res.data);
@@ -39,22 +42,34 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="home">
+    <main className="home">
       {loginState ? (
         <div className="home__container">
           {histories.map((historie) => (
-            <div className="home__container__post">
-              <img className="home__container__post__foto" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.es%2Fvector-premium%2Ficono-perfil-avatar_20315456.htm&psig=AOvVaw2HS2uG0xo04QvWVNFp-CHS&ust=1665605470171000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCIjbqof-2PoCFQAAAAAdAAAAABAD"/>
+            <article className="home__container__post">
+              <img className="home__container__post__foto" width="50" height="50" src="https://source.unsplash.com/random"/>
               <h5 className="home__container__post__author">{historie.author}</h5>
               <h2 className="home__container__post__titulo">{historie.titulo}</h2>
               <p className="home__container__post__texto">{historie.texto}</p>
               <div className="home__container__post__menu">
-                <b className="home__container__post__menu__megusta">Me gusta</b>
-                <b className="home__container__post__menu__comparte">Compartir</b>
+                <hr/>
+                  <b className="home__container__post__menu__megusta">
+                    {/* <Icon icon={thumbsup}></Icon> */} Me gusta
+                  </b>
+                  
+                  <b className="home__container__post__menu__comparte">
+                    {/* <Icon icon={redo2}></Icon> */} Compartir
+                  </b>
+                <hr/>
               </div>
               <input className="home__container__post__comenta" placeholder="Comenta" />
-            </div>
+            </article>
           ))}
+          <aside>
+            <section>Publicidad</section>
+            <section>Páginas </section>
+            <section>Contactos</section>
+          </aside>
         </div>
       ) : (
         <div className="home__loged">
@@ -79,6 +94,6 @@ export default function Home() {
           </div>
         </div>
       )}
-    </div>
+    </main>
   );
 }

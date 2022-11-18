@@ -1,0 +1,103 @@
+.publicacion{
+    position: fixed;
+    background-color:white;
+    top: 20px;
+    right: 30%;
+    margin: 10vh auto;
+    width: 350px;
+    height:400px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius:2px;
+    overflow-y: auto;
+    z-index: 200;
+    &::-webkit-scrollbar{
+        width: 0.2vw;
+        height: 1vh;
+    };
+    &::-webkit-scrollbar-button{
+        -webkit-appearance:none ;
+    };
+    &::-webkit-scrollbar-thumb{
+        width: 0.9vw;
+        background-color:grey;
+    };
+    
+    &__titulo{
+        border-bottom: rgb(230 230 230 /.5) solid;
+        padding: 2% 0;
+    };
+    &__foto{
+        border-radius: 100%;
+        display: inline-flex;
+        margin-right: 5%;
+        margin-left: -10%;
+        position: aboslute
+    };
+    &__nombre{
+        display: inline-flex;
+        position: relative;
+    };
+    &__form{
+        align-items: center;
+        text-align: center;
+        justify-items: center;
+        label{
+            
+        };
+        &__titulo{
+            display:block;
+            margin: 1% auto;
+            
+        };
+        &__texto{
+            display:block;
+            margin: 1% auto;
+            resize: none;
+            border: none;
+        }
+        img{
+            height: 20%;
+            margin: 5% auto;
+        }
+        &__container{
+            width: 100%;
+            height: 50px;
+            align-items: center;
+            justify-items: center;
+            box-sizing: border-box;
+            position: relative;
+            margin-bottom: 40px;
+            &__background{
+                border: solid rgb(197 195 195 / 0.6);
+                box-sizing: border-box;
+                font-size: 0.7em;
+                background-color:rgb(250 250 250 / 0.6);
+                margin: 0 5%;
+                width: 90%;
+                height: 100%;
+                position: absolute;
+                border-radius: 5px;
+                padding: 0 2%;
+                cursor: pointer;
+                p{
+                    float: left;
+                }
+            };
+            &__file{
+                display:block;
+                margin: 1% auto;
+                width: 100%;
+                height: 100%;
+                align-items: center;
+                justify-items: center;
+                
+                
+                &::placeholder{
+                        
+                    }
+            }
+        }
+    }
+}

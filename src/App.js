@@ -5,6 +5,16 @@ import {actionLogged, saveUserData} from './util/redux/actions/actions.js'
 import {useSelector} from 'react-redux';
 import Crear from './componentes/crear/crear'
 
+const BackGround = ()=>{
+
+  return (
+    <>
+      <div className="App__background">
+
+      </div>
+    </>)
+}
+
 function App() {
 
    const validadorState = useSelector(state=>
@@ -34,10 +44,13 @@ function App() {
   return (
    
       <div className="App" >
+        {validadorState ? <BackGround/>: null}
         <Navegation/>
         {/* <div className="crear" style={{"visibility": validadorState ? "visibility" : "hidden"}}>
           <Crear/>
         </div> */}
+        
+        {validadorState ? <Crear/> : null}
       </div>
     
   );

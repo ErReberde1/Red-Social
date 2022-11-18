@@ -22,12 +22,16 @@ export default function Navegation() {
   const dispatch = useDispatch();
   const loginState = useSelector((state) => state.login);
 
+ 
+
   const crearPubli= ()=>{
     dispatch(actionValidadorTrue)
   }
 
   const Data = useSelector((state) => state.data);
   const userData = [...Data];
+
+ 
 
   const logOut = () => {
     dispatch(actionUnLogged);
@@ -66,11 +70,11 @@ export default function Navegation() {
             </li>: null}
             {loginState ?
             <li className="contain__nav__enlace">
-            <Link className="contain__nav__enlace__icon" to="/crear">
-              <Icon 
+            
+              <Icon onClick={crearPubli}
               icon={plus}
               />
-            </Link>
+            
           </li>: null}
         {loginState ? (
           <>
@@ -83,7 +87,7 @@ export default function Navegation() {
             </li>
             <li className="contain__nav__nologed">
               {userData.map((user) => (
-                <Link className="contain__nav__nologed__icon" to="/login">
+                <Link key={user.name}className="contain__nav__nologed__icon" to="/login">
                   <img alt={user.name} src=".png"/>
                 </Link>
               ))}
