@@ -1,21 +1,24 @@
 :root{
-    --color-primary: black;
+    --color-primary: white;
     --background-color-primary: #1877f2;
 }
 
 .btn-primary{
     background-color: var(--background-color-primary);
-    color: var(--color-primary);
+    color: var(--color-primary) !important;
     box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
       -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
     border-color: transparent;
     cursor: pointer;
-    padding: 0.6vh 3vw;
-    margin: 10px 10px;
-    border-radius: 5%
-
+    font-size: .8em;
+    width: 100%;
+    padding: 1.5vh 3vw;
+    margin: 15px 0px;
+    border-radius: 5px;
+    font-weight: bold;
+    box-sizing: border-box;
 }
-.btn-secondary:hover{
+.btn-primary:hover{
   background-color: #1653d7
 }
 

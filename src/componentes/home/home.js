@@ -18,8 +18,16 @@ import BotonPrimario from '../../util/botones/botonPrimario'
 import { Icon } from 'react-icons-kit'
 import {thumbsup} from 'react-icons-kit/oct/thumbsup'
 import {redo2} from 'react-icons-kit/icomoon/redo2'
+import ModalForm from "../../util/Modales/modalformlogin";
 
 export default function Home() {
+  
+  const [inputs ,setInputs] = useState([{ "type":"email",
+                                            "name": "Correo electrónico"
+                                            },
+                                            { "type":"password",
+                                            "name": "Contraseña"}])
+
   const [histories, setHistories] = useState([]);
 
   const validadorState = useSelector((state) => state.validador);
@@ -77,22 +85,13 @@ export default function Home() {
           <div className="home__loged__left">
             
             <h1 className="home__loged__left__h1"> ReactJSocial</h1>
-        
-            <h4 className="home__loged__left__h4"> Porque compartir es vivir <br/>¡Únete ya y empieza a hacerlo!</h4>
-            
+            <p className="home__loged__left__h4"> Porque compartir es vivir <br/>¡Únete ya y empieza a hacerlo!</p>
           </div>
-          <div className="home__loged__right">
-            <h3 className="home__loged__right__h3">
-              <Link className="home__loged__right__h3__link" to="/login" onClick={() => dispatch(actionRegister)}>
-                <BotonPrimario textoBoton="Regístrate"></BotonPrimario>
-              </Link>
-            </h3>
-            <h3 className="home__loged__right__h3">
-              <Link className="home__loged__right__h3__link" to="/login" onClick={() => dispatch(actionUnRegister)}>
-              <BotonPrimario textoBoton="Login"></BotonPrimario>
-              </Link>
-            </h3>
-          </div>
+          <ModalForm 
+            title="Login" 
+            textoBoton="Enviar" 
+            inputs={inputs}
+            /> 
         </div>
       )}
     </main>

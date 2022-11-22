@@ -20,7 +20,7 @@ export default function Login() {
     <>
         {<ModalForm 
           title="Login" 
-          textoBoton="Enviar" 
+          textoBoton="Iniciar sesión" 
           inputs={inputs}
           />  
             }

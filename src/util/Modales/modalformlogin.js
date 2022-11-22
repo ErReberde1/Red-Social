@@ -9,7 +9,7 @@ import './modalformlogin.css'
 import io from 'socket.io-client'
 import './modalformlogin.scss'
 import Loader from '../loader/loader.js'
-
+import BotonSecundario from '../botones/botonSecundario'
 const ModaLoged = lazy(()=> import('./modaloged'))
 const ModalFormRegister = lazy(()=> import('./modalformregister'))
 
@@ -112,7 +112,7 @@ export default function ModalForm({title, textoBoton, inputs}) {
         <div className="login__container">
           
           <form id="form" className="login__container__form">
-            <h1 className="login__container__form__titulo">{title}</h1>
+
           
             {valueInputs.map(e => React.createElement("input", {type: e.type,
                                                               placeholder: e.name,
@@ -120,10 +120,13 @@ export default function ModalForm({title, textoBoton, inputs}) {
                                                               name: e.name,
                                                               onChange: handleInputChange,
                                                               key: e.name}))}
-            <BotonPrimario textoBoton={textoBoton} onclick={enviarDatos} />
-            <BotonPrimario textoBoton="Registrarme" onclick={registro} />
-          <p> ¿Has olvidado tu contraseña?</p>
+            <BotonPrimario textoBoton="Iniciar sesión" onclick={enviarDatos} />
+            
+          
           </form>
+          <a href="">¿Has olvidado tu contraseña?</a>
+          <hr/>
+          <BotonSecundario textoBoton="Crear cuenta nueva" onclick={registro} />
         </div>}
     </div>
     </Suspense>
